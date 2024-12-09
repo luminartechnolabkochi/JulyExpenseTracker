@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+
+{%load static%}
+
+
+
+
+{%block main_block%}
+<div class="container">
+
+    <div class="row">
+        <div class="col-3">
+
+            <img src="{%static 'images/exp.png'%}" alt="" class="w-100">
+         
+        </div>
+        <div class="col-6 border border-2 rounded p-5 shadow">
+            <h5 class="text-center fw-bold">Add New Transaction</h5>
+            <form action="" method="post">
+                {%csrf_token%}
+                {{form}}
+
+                <div class="text-center">
+                    <button class="btn btn-outline-info px-4" type="submit">add</button>
+
+                </div>
+
+              
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    
+</div>
+
+{%endblock%}

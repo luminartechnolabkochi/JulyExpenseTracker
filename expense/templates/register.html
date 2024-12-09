@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div class="container">
+
+        <form action="" method="post">
+            {%csrf_token%}
+                {%for f in form%}
+                        <div>
+                            <label for="">{{f.label_tag}}</label>
+                            {{f}}
+                        </div>
+                {%endfor%}
+
+            <button type="submit">register</button>
+
+        </form>
+    </div>
+</body>
+</html>

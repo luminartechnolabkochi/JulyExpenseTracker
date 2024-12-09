@@ -1,0 +1,43 @@
+{%extends  'base.html'%}
+
+{%block main_block%}
+<div class="container">
+
+    <h3>Welcome user {{request.user}}</h3>
+    <div class="w-50 p-3 border border-2 shadow mx-auto mt-5 rounded"> <h3 class="text-center fw-bold">TotalExpense : {{total_expense}}</h3></div>
+
+    <div class="row mt-5">
+        <div class="col-4 px-2 border">
+            <h5 class="fw-bold text-center my-3">CategorySummary</h5>
+            {%for summary in category_summary%}
+                <div class="border rounded-pill my-2 p-2">
+                    <span>{{summary.category}}</span> <span>{{summary.total}}</span>
+                </div>
+            {%endfor%}
+
+        </div>
+        <div class="col-4 px-2 border">
+            <h5 class="fw-bold text-center my-3">PaymentMethodSummary</h5>
+            {%for summary in payment_summary%}
+            <div class="border rounded-pill my-2 p-2">
+                <span>{{summary.payment_method}}</span> <span>{{summary.total}}</span>
+            </div>
+            {%endfor%}
+
+
+
+        </div>
+        <div class="col-4 px-2 border">
+            <h5 class="fw-bold text-center my-3">PaymentMethodSummary</h5>
+            {%for summary in priority_summary%}
+            <div class="border rounded-pill my-2 p-2">
+                <span>{{summary.priority}}</span> <span>{{summary.total}}</span>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+
+</div>
+
+{%endblock%}
+
