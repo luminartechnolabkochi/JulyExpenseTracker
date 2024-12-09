@@ -15,6 +15,8 @@ from django.contrib.auth import authenticate,login,logout
 from expense.decorators import signin_required
 
 from django.utils.decorators import method_decorator
+
+from django.contrib import messages
 # messageframework
 
 
@@ -57,7 +59,10 @@ class ExpenseCreateView(View):
             
             form_instance.instance.owner=request.user
 
-            form_instance.save()#create owner is missing
+            form_instance.save()
+
+            messages.success(request,"Expense has been added")
+
 
         return redirect("listexpense")
 
@@ -127,6 +132,7 @@ class ExpenseDeleteView(View):
 
         Transaction.objects.get(id=id).delete()
 
+        messages.success(request,"expense has been  removed ")
         return redirect("listexpense")
 
 
@@ -175,8 +181,11 @@ class ExpenseUpdateView(View):
 
             form_instance.save()#update 
 
+            messages.success(request,"expense has been cahnged ")
+
             return redirect("listexpense")
         
+        messages.error(request,"failed to change expense")
         return render(request,self.template_name,{"form":form_instance})
 
 
